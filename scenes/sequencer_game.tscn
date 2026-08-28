@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://ejm0cqn1s4e2"]
+
+[ext_resource type="Script" uid="uid://iy8edr20ej60" path="res://scripts/sequencer_game.gd" id="1_cenky"]
+[ext_resource type="Texture2D" uid="uid://b12jbebnrbrhj" path="res://assets/images/lifted_container.png" id="2_ta8qa"]
+[ext_resource type="Theme" uid="uid://bqcj6e2j66757" path="res://resources/sequencer_theme.tres" id="3_3y3ug"]
+[ext_resource type="Theme" uid="uid://h6lby2jgldsl" path="res://resources/icon_label_theme.tres" id="3_u7vva"]
+[ext_resource type="Texture2D" uid="uid://dnhq6ctd110pj" path="res://assets/images/left_click_icon.png" id="4_u7vva"]
+[ext_resource type="Texture2D" uid="uid://cdnbgk3w6jxr1" path="res://assets/images/right_click_icon.png" id="5_s65pp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ta8qa"]
+texture = ExtResource("2_ta8qa")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+modulate_color = Color(0.36862746, 0.30980393, 0.63529414, 1)
+
+[node name="SequencerGame" type="HBoxContainer" unique_id=1063620590]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -29.0
+offset_right = 65.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_cenky")
+
+[node name="Sequencer" type="PanelContainer" parent="." unique_id=2043379815]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ta8qa")
+
+[node name="MarginContainer" type="MarginContainer" parent="Sequencer" unique_id=130378656]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Buttons" type="GridContainer" parent="Sequencer/MarginContainer" unique_id=1980357875]
+layout_mode = 2
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 5
+
+[node name="S1Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=456182479]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("3_3y3ug")
+
+[node name="S1Button2" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=121531964]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("3_3y3ug")
+
+[node name="S1Button3" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1015259585]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("3_3y3ug")
+
+[node name="S1Button4" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1736077005]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("3_3y3ug")
+
+[node name="S1Button5" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=2074765093]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("3_3y3ug")
+
+[node name="S1Button6" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1508103799]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("3_3y3ug")
+
+[node name="S1Button7" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=630991460]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("3_3y3ug")
+
+[node name="S1Button8" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1039861650]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("3_3y3ug")
+
+[node name="S1Button9" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=252763183]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("3_3y3ug")
+
+[node name="S1Button10" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1920762361]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("3_3y3ug")
+
+[node name="Instructions" type="VBoxContainer" parent="." unique_id=1639154275]
+layout_mode = 2
+theme_override_constants/separation = -4
+alignment = 1
+
+[node name="Button" type="Button" parent="Instructions" unique_id=1025190218]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_u7vva")
+disabled = true
+text = "Select"
+icon = ExtResource("4_u7vva")
+flat = true
+alignment = 0
+
+[node name="Button2" type="Button" parent="Instructions" unique_id=1090478645]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_u7vva")
+disabled = true
+text = "Skip"
+icon = ExtResource("5_s65pp")
+flat = true
+alignment = 0

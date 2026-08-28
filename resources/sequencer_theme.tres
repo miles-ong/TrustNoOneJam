@@ -1,0 +1,107 @@
+[gd_resource type="Theme" format=3 uid="uid://bqcj6e2j66757"]
+
+[ext_resource type="Texture2D" uid="uid://cfep2aoyqwbk5" path="res://assets/images/flat_button.png" id="1_rv6su"]
+[ext_resource type="FontFile" uid="uid://ctsy62kitofb4" path="res://assets/fonts/determination.ttf" id="2_1b5m0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rv6su"]
+texture = ExtResource("1_rv6su")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.36862746, 0.30980393, 0.63529414, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1b5m0"]
+texture = ExtResource("1_rv6su")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.36862746, 0.30980393, 0.63529414, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ppi2a"]
+texture = ExtResource("1_rv6su")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.36862746, 0.30980393, 0.63529414, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfd3y"]
+texture = ExtResource("1_rv6su")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.36862746, 0.30980393, 0.63529414, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qrp5h"]
+texture = ExtResource("1_rv6su")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.36862746, 0.30980393, 0.63529414, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0vg0y"]
+texture = ExtResource("1_rv6su")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.36862746, 0.30980393, 0.63529414, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1j7bj"]
+texture = ExtResource("1_rv6su")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.36862746, 0.30980393, 0.63529414, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_124bx"]
+texture = ExtResource("1_rv6su")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.36862746, 0.30980393, 0.63529414, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tjp3x"]
+texture = ExtResource("1_rv6su")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.36862746, 0.30980393, 0.63529414, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4wtns"]
+texture = ExtResource("1_rv6su")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.36862746, 0.30980393, 0.63529414, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6lvld"]
+texture = ExtResource("1_rv6su")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.36862746, 0.30980393, 0.63529414, 1)
+
+[resource]
+default_font = ExtResource("2_1b5m0")
+Button/colors/font_disabled_color = Color(1, 1, 1, 1)
+Button/styles/disabled = SubResource("StyleBoxTexture_rv6su")
+Button/styles/disabled_mirrored = SubResource("StyleBoxTexture_1b5m0")
+Button/styles/focus = SubResource("StyleBoxTexture_ppi2a")
+Button/styles/hover = SubResource("StyleBoxTexture_yfd3y")
+Button/styles/hover_mirrored = SubResource("StyleBoxTexture_qrp5h")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_0vg0y")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_1j7bj")
+Button/styles/normal = SubResource("StyleBoxTexture_124bx")
+Button/styles/normal_mirrored = SubResource("StyleBoxTexture_tjp3x")
+Button/styles/pressed = SubResource("StyleBoxTexture_4wtns")
+Button/styles/pressed_mirrored = SubResource("StyleBoxTexture_6lvld")

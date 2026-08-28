@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://bp3nnjmpstqmg"]
+
+[ext_resource type="Script" uid="uid://pde5vmopxaw3" path="res://scripts/calculator_game.gd" id="1_kgoci"]
+[ext_resource type="Texture2D" uid="uid://du7men502rlko" path="res://assets/images/calculator_display.png" id="2_kgoci"]
+[ext_resource type="Theme" uid="uid://o37o0rjfludh" path="res://resources/base_theme.tres" id="3_d3gvq"]
+[ext_resource type="Script" uid="uid://gnp7ftpb4niq" path="res://scripts/operation_button.gd" id="4_i2phy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_26iok"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j8sg6"]
+load_path = "res://.godot/imported/lifted_container.png-4e62340f96fa9488fc7602edae5b836d.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_26iok"]
+texture = ExtResource("2_kgoci")
+texture_margin_left = 3.0
+texture_margin_top = 4.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.14846736, 0.4472767, 0.6288646, 1)
+
+[node name="CalculatorGame" type="PanelContainer" unique_id=2143979664]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -86.0
+offset_right = 60.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_26iok")
+script = ExtResource("1_kgoci")
+
+[node name="Background" type="NinePatchRect" parent="." unique_id=821304774]
+modulate = Color(0.19607843, 0.53333336, 0.7411765, 1)
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_j8sg6")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Padding" type="MarginContainer" parent="." unique_id=1108626462]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Contents" type="VBoxContainer" parent="Padding" unique_id=1435916395]
+layout_mode = 2
+
+[node name="Display" type="PanelContainer" parent="Padding/Contents" unique_id=1692355831]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_26iok")
+
+[node name="Padding" type="MarginContainer" parent="Padding/Contents/Display" unique_id=289451900]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 1
+
+[node name="Info" type="VBoxContainer" parent="Padding/Contents/Display/Padding" unique_id=428745943]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="Target" type="Label" parent="Padding/Contents/Display/Padding/Info" unique_id=371273313]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+theme_override_colors/font_color = Color(1, 1, 0, 0.50980395)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 2
+
+[node name="LastExecution" type="Label" parent="Padding/Contents/Display/Padding/Info" unique_id=447928653]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+theme_override_colors/font_color = Color(1, 1, 1, 0.50980395)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 2
+
+[node name="CurrentInput" type="Label" parent="Padding/Contents/Display/Padding/Info" unique_id=1756867583]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CalculatorButtons" type="GridContainer" parent="Padding/Contents" unique_id=320849499]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+columns = 4
+
+[node name="7Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1892885019]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "7"
+
+[node name="8Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1681437942]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "8"
+
+[node name="9Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1428383831]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "9"
+
+[node name="DivideButton" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1334375669]
+modulate = Color(0.4, 0.7607843, 0.64705884, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "/"
+script = ExtResource("4_i2phy")
+operation = 3
+
+[node name="4Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1058617646]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "4"
+
+[node name="5Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=480364794]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "5"
+
+[node name="6Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=2133599233]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "6"
+
+[node name="MultiplyButton" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1815336322]
+modulate = Color(0.4, 0.7607843, 0.64705884, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "X"
+script = ExtResource("4_i2phy")
+operation = 2
+
+[node name="1Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=2145164703]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "1"
+
+[node name="2Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1636069569]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "2"
+
+[node name="3Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=774344535]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "3"
+
+[node name="SubtractButton" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1760644048]
+modulate = Color(0.4, 0.7607843, 0.64705884, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "-"
+script = ExtResource("4_i2phy")
+operation = 1
+
+[node name="Filler" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=298725616]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+disabled = true
+flat = true
+
+[node name="0Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=765349859]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "0"
+
+[node name="EqualsButton" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1518190470]
+unique_name_in_owner = true
+modulate = Color(0.8352941, 0.24313726, 0.30980393, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "="
+
+[node name="AddButton" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1347369243]
+modulate = Color(0.4, 0.7607843, 0.64705884, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("3_d3gvq")
+text = "+"
+script = ExtResource("4_i2phy")
+
+[connection signal="pressed" from="Padding/Contents/CalculatorButtons/EqualsButton" to="." method="_on_equals_button_pressed"]

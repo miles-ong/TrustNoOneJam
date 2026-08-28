@@ -1,0 +1,36 @@
+[gd_resource type="Theme" format=3 uid="uid://o37o0rjfludh"]
+
+[ext_resource type="Texture2D" uid="uid://dbmamn81hiayq" path="res://assets/images/button.png" id="1_1ffvk"]
+[ext_resource type="FontFile" uid="uid://ctsy62kitofb4" path="res://assets/fonts/determination.ttf" id="2_f1q2c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j8sg6"]
+texture = ExtResource("1_1ffvk")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bupma"]
+texture = ExtResource("1_1ffvk")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fx6ei"]
+
+[resource]
+default_font = ExtResource("2_f1q2c")
+Button/colors/font_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+Button/styles/disabled = SubResource("StyleBoxTexture_j8sg6")
+Button/styles/disabled_mirrored = SubResource("StyleBoxTexture_j8sg6")
+Button/styles/focus = SubResource("StyleBoxTexture_bupma")
+Button/styles/hover = SubResource("StyleBoxTexture_bupma")
+Button/styles/hover_mirrored = SubResource("StyleBoxTexture_bupma")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_bupma")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_bupma")
+Button/styles/normal = SubResource("StyleBoxTexture_bupma")
+Button/styles/normal_mirrored = SubResource("StyleBoxTexture_bupma")
+Button/styles/pressed = SubResource("StyleBoxTexture_bupma")
+Button/styles/pressed_mirrored = SubResource("StyleBoxTexture_fx6ei")

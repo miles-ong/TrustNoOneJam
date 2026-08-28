@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cl13uuxflxrhc"]
+
+[ext_resource type="Script" uid="uid://dx8ic1ga4j1ef" path="res://scripts/game_manager.gd" id="1_hwd4i"]
+[ext_resource type="PackedScene" uid="uid://bp3nnjmpstqmg" path="res://scenes/calculator_game.tscn" id="2_glms7"]
+[ext_resource type="PackedScene" uid="uid://ejm0cqn1s4e2" path="res://scenes/sequencer_game.tscn" id="3_udu3i"]
+
+[node name="GameManager" type="Node" unique_id=153823859]
+script = ExtResource("1_hwd4i")
+minigames = Array[PackedScene]([ExtResource("2_glms7"), ExtResource("3_udu3i")])
+
+[node name="MinigameContainer" type="Control" parent="." unique_id=1423713871]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="Timer" type="Timer" parent="." unique_id=1952350920]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
