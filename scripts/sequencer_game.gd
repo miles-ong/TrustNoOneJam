@@ -2,7 +2,6 @@ class_name SequencerGame
 extends Minigame
 
 var _sequence_order: Array[int] = []
-var _receive_inputs = false
 
 @onready var buttons: GridContainer = %Buttons
 
@@ -13,10 +12,7 @@ func _ready() -> void:
 
 func start() -> void:
 	_generate_sequence(0, 99)
-	_receive_inputs = true
-
-func get_one_position() -> Vector2:
-	return Vector2.ZERO
+	receive_inputs = true
 
 func _generate_sequence(min_range: int, max_range: int) -> void:
 	_sequence_order.clear()
@@ -68,7 +64,7 @@ func _handle_right_click(button: Button) -> void:
 	button.add_theme_color_override("font_disabled_color", Color.ORANGE)
 
 func _on_button_pressed(event: InputEvent, button: Button) -> void:
-	if !_receive_inputs:
+	if !receive_inputs:
 		return
 	
 	if event is InputEventMouseButton:

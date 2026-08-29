@@ -15,6 +15,7 @@ var time_limit := STARTING_TIME
 @onready var timer: Timer = $Timer
 @onready var fail_overlay: ColorRect = %FailOverlay
 @onready var fail_digit: Label = %FailDigit
+@onready var screen_transition: ScreenTransition = %ScreenTransition
 
 func _ready() -> void:
 	start_run()
@@ -30,6 +31,8 @@ func end_run() -> void:
 	print("Final Score: ", score)
 
 func _start_next_minigame() -> void:
+	await screen_transition.wipe_in()
+	
 	_clear_current_minigame()
 	
 	if active_minigames.is_empty():
@@ -48,6 +51,8 @@ func _start_next_minigame() -> void:
 	timer.start(time_limit)
 	minigame.setup(fail_overlay, fail_digit)
 	minigame.start()
+	
+	await screen_transition.wipe_out()
 
 func _refresh_active_minigames() -> void:
 	active_minigames = minigames.duplicate()

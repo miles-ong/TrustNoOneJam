@@ -9,6 +9,8 @@ const OPERATION_SYMBOLS := {
 	OperationButton.Operation.DIVIDE: "/",
 	OperationButton.Operation.NONE: "",
 }
+const COMPLETE_BLINK_LOOPS := 5
+const COMPLETE_BLINK_INTERVAL := 0.2
 
 var operation_buttons: Array[OperationButton] = []
 var left_value: String
@@ -22,7 +24,6 @@ var current_operation: OperationButton.Operation = OperationButton.Operation.NON
 		
 		_current_operation = value
 var _current_operation: OperationButton.Operation = OperationButton.Operation.NONE
-var _receive_inputs := false
 var _target_output := 0
 var _disabled_number_count := 2
 var _disabled_numbers: Array[int] = []
@@ -42,7 +43,7 @@ func _ready() -> void:
 			button.pressed.connect(_on_button_pressed.bind(button))
 
 func _unhandled_input(event: InputEvent) -> void:
-	if !_receive_inputs:
+	if !receive_inputs:
 		return
 	
 	if event.is_action_pressed("calc_add"):
@@ -83,7 +84,20 @@ func start() -> void:
 		var button: Button = calculator_buttons.get_node("%dButton" %number)
 		button.disabled = true
 	
-	_receive_inputs = true
+	receive_inputs = true
+
+func telegraph_complete() -> void:
+	target.text = "NICE!"
+	target.add_theme_color_override("font_color", Color.SEA_GREEN)
+	current_input.add_theme_color_override("font_color", Color.SEA_GREEN)
+	
+	for i in COMPLETE_BLINK_LOOPS:
+		target.modulate.a = 0.0
+		current_input.modulate.a = 0.0
+		await get_tree().create_timer(COMPLETE_BLINK_INTERVAL).timeout
+		target.modulate.a = 1.0
+		current_input.modulate.a = 1.0
+		await get_tree().create_timer(COMPLETE_BLINK_INTERVAL).timeout
 
 func _update_input_display(equals_result: int = -1) -> void:
 	target.text = "MAKE=%d" % _target_output
@@ -153,14 +167,14 @@ func _execute_formula() -> void:
 			else:
 				output = int(left_value) / int(right_value)
 	
-	if output == _target_output:
-		complete()
-	
 	_update_input_display(output)
 	
 	left_value = str(output)
 	right_value = ""
 	current_operation = OperationButton.Operation.NONE
+	
+	if output == _target_output:
+		complete()
 
 func _check_length() -> bool:
 	return left_value.length() + OPERATION_SYMBOLS[current_operation].length() + right_value.length() < MAX_INPUT_LENGTH
@@ -174,19 +188,19 @@ func _generate_safe_number(min_range: int, max_range: int) -> int:
 	return number
 
 func _on_button_pressed(button: Button) -> void:
-	if !_receive_inputs:
+	if !receive_inputs:
 		return
 	
 	_append_input(button.text)
 
 func _on_operation_button_pressed(button: OperationButton) -> void:
-	if !_receive_inputs:
+	if !receive_inputs:
 		return
 	
 	_enter_operation(button.operation)
 
 func _on_equals_button_pressed() -> void:
-	if !_receive_inputs:
+	if !receive_inputs:
 		return
 		
 	_execute_formula()
