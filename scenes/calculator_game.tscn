@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://pde5vmopxaw3" path="res://scripts/calculator_game.gd" id="1_kgoci"]
 [ext_resource type="Texture2D" uid="uid://du7men502rlko" path="res://assets/images/calculator_display.png" id="2_kgoci"]
 [ext_resource type="Theme" uid="uid://o37o0rjfludh" path="res://resources/base_theme.tres" id="3_d3gvq"]
+[ext_resource type="PackedScene" uid="uid://blva8gaxl06t1" path="res://scenes/animated_button.tscn" id="4_d3gvq"]
 [ext_resource type="Script" uid="uid://gnp7ftpb4niq" path="res://scripts/operation_button.gd" id="4_i2phy"]
 [ext_resource type="Theme" uid="uid://f3cilhtnb5xe" path="res://resources/raised_button_theme.tres" id="4_kgoci"]
 
@@ -100,7 +101,7 @@ layout_mode = 2
 size_flags_vertical = 3
 columns = 4
 
-[node name="7Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1892885019]
+[node name="7Button" parent="Padding/Contents/CalculatorButtons" unique_id=2129710645 instance=ExtResource("4_d3gvq")]
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
 custom_maximum_size = Vector2(24, 24)
@@ -108,7 +109,7 @@ layout_mode = 2
 theme = ExtResource("4_kgoci")
 text = "7"
 
-[node name="8Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1681437942]
+[node name="8Button" parent="Padding/Contents/CalculatorButtons" unique_id=1466417296 instance=ExtResource("4_d3gvq")]
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
 custom_maximum_size = Vector2(24, 24)
@@ -116,7 +117,7 @@ layout_mode = 2
 theme = ExtResource("4_kgoci")
 text = "8"
 
-[node name="9Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1428383831]
+[node name="9Button" parent="Padding/Contents/CalculatorButtons" unique_id=1475732847 instance=ExtResource("4_d3gvq")]
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
 custom_maximum_size = Vector2(24, 24)
@@ -124,7 +125,7 @@ layout_mode = 2
 theme = ExtResource("4_kgoci")
 text = "9"
 
-[node name="DivideButton" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1334375669]
+[node name="DivideButton" parent="Padding/Contents/CalculatorButtons" unique_id=487254796 instance=ExtResource("4_d3gvq")]
 modulate = Color(0.4, 0.7607843, 0.64705884, 1)
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
@@ -135,7 +136,7 @@ text = "/"
 script = ExtResource("4_i2phy")
 operation = 3
 
-[node name="4Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1058617646]
+[node name="4Button" parent="Padding/Contents/CalculatorButtons" unique_id=2035454978 instance=ExtResource("4_d3gvq")]
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
 custom_maximum_size = Vector2(24, 24)
@@ -143,7 +144,7 @@ layout_mode = 2
 theme = ExtResource("4_kgoci")
 text = "4"
 
-[node name="5Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=480364794]
+[node name="5Button" parent="Padding/Contents/CalculatorButtons" unique_id=202230699 instance=ExtResource("4_d3gvq")]
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
 custom_maximum_size = Vector2(24, 24)
@@ -151,7 +152,7 @@ layout_mode = 2
 theme = ExtResource("4_kgoci")
 text = "5"
 
-[node name="6Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=2133599233]
+[node name="6Button" parent="Padding/Contents/CalculatorButtons" unique_id=382599519 instance=ExtResource("4_d3gvq")]
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
 custom_maximum_size = Vector2(24, 24)
@@ -159,7 +160,7 @@ layout_mode = 2
 theme = ExtResource("4_kgoci")
 text = "6"
 
-[node name="MultiplyButton" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1815336322]
+[node name="MultiplyButton" parent="Padding/Contents/CalculatorButtons" unique_id=430389721 instance=ExtResource("4_d3gvq")]
 modulate = Color(0.4, 0.7607843, 0.64705884, 1)
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
@@ -170,7 +171,7 @@ text = "X"
 script = ExtResource("4_i2phy")
 operation = 2
 
-[node name="1Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=2145164703]
+[node name="1Button" parent="Padding/Contents/CalculatorButtons" unique_id=112161670 instance=ExtResource("4_d3gvq")]
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
 custom_maximum_size = Vector2(24, 24)
@@ -178,7 +179,7 @@ layout_mode = 2
 theme = ExtResource("4_kgoci")
 text = "1"
 
-[node name="2Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1636069569]
+[node name="2Button" parent="Padding/Contents/CalculatorButtons" unique_id=1594945216 instance=ExtResource("4_d3gvq")]
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
 custom_maximum_size = Vector2(24, 24)
@@ -186,7 +187,7 @@ layout_mode = 2
 theme = ExtResource("4_kgoci")
 text = "2"
 
-[node name="3Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=774344535]
+[node name="3Button" parent="Padding/Contents/CalculatorButtons" unique_id=301314581 instance=ExtResource("4_d3gvq")]
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
 custom_maximum_size = Vector2(24, 24)
@@ -194,7 +195,7 @@ layout_mode = 2
 theme = ExtResource("4_kgoci")
 text = "3"
 
-[node name="SubtractButton" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1760644048]
+[node name="SubtractButton" parent="Padding/Contents/CalculatorButtons" unique_id=735939427 instance=ExtResource("4_d3gvq")]
 modulate = Color(0.4, 0.7607843, 0.64705884, 1)
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
@@ -205,16 +206,17 @@ text = "-"
 script = ExtResource("4_i2phy")
 operation = 1
 
-[node name="Filler" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=298725616]
+[node name="DeleteButton" parent="Padding/Contents/CalculatorButtons" unique_id=1375336270 instance=ExtResource("4_d3gvq")]
+unique_name_in_owner = true
+modulate = Color(0.95686275, 0.42745098, 0.2627451, 1)
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
 custom_maximum_size = Vector2(24, 24)
 layout_mode = 2
 theme = ExtResource("4_kgoci")
-disabled = true
-flat = true
+text = "<-"
 
-[node name="0Button" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=765349859]
+[node name="0Button" parent="Padding/Contents/CalculatorButtons" unique_id=1184903361 instance=ExtResource("4_d3gvq")]
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
 custom_maximum_size = Vector2(24, 24)
@@ -222,7 +224,7 @@ layout_mode = 2
 theme = ExtResource("4_kgoci")
 text = "0"
 
-[node name="EqualsButton" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1518190470]
+[node name="EqualsButton" parent="Padding/Contents/CalculatorButtons" unique_id=562132619 instance=ExtResource("4_d3gvq")]
 unique_name_in_owner = true
 modulate = Color(0.8352941, 0.24313726, 0.30980393, 1)
 texture_filter = 1
@@ -232,7 +234,7 @@ layout_mode = 2
 theme = ExtResource("4_kgoci")
 text = "="
 
-[node name="AddButton" type="Button" parent="Padding/Contents/CalculatorButtons" unique_id=1347369243]
+[node name="AddButton" parent="Padding/Contents/CalculatorButtons" unique_id=1489646616 instance=ExtResource("4_d3gvq")]
 modulate = Color(0.4, 0.7607843, 0.64705884, 1)
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
@@ -241,5 +243,4 @@ layout_mode = 2
 theme = ExtResource("4_kgoci")
 text = "+"
 script = ExtResource("4_i2phy")
-
-[connection signal="pressed" from="Padding/Contents/CalculatorButtons/EqualsButton" to="." method="_on_equals_button_pressed"]
+operation = 0

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bj3s74paj6e8f"]
+
+[ext_resource type="Script" uid="uid://dxtsqf4ohk3e" path="res://scripts/animation_controller.gd" id="1_2vpra"]
+[ext_resource type="Script" uid="uid://bak4wl25sfnh" path="res://scripts/animated_label.gd" id="1_qxuwc"]
+
+[node name="AnimatedLabel" type="Label" unique_id=1085539197]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_qxuwc")
+
+[node name="AnimationController" type="Node" parent="." unique_id=1685322739]
+unique_name_in_owner = true
+script = ExtResource("1_2vpra")
+metadata/_custom_type_script = "uid://dxtsqf4ohk3e"

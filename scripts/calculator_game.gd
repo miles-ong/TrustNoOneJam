@@ -32,14 +32,15 @@ var _disabled_numbers: Array[int] = []
 @onready var last_execution: Label = %LastExecution
 @onready var current_input: Label = %CurrentInput
 @onready var calculator_buttons: GridContainer = %CalculatorButtons
-@onready var equals_button: Button = %EqualsButton
+@onready var delete_button: AnimatedButton = %DeleteButton
+@onready var equals_button: AnimatedButton = %EqualsButton
 
 func _ready() -> void:
 	for button in calculator_buttons.get_children():
 		if button is OperationButton:
 			operation_buttons.append(button)
 			button.pressed.connect(_on_operation_button_pressed.bind(button))
-		elif button is Button and button != equals_button:
+		elif button is Button:
 			button.pressed.connect(_on_button_pressed.bind(button))
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -191,16 +192,17 @@ func _on_button_pressed(button: Button) -> void:
 	if !receive_inputs:
 		return
 	
+	if button == delete_button:
+		_remove_input()
+		return
+		
 	_append_input(button.text)
+	
+	if button == equals_button:
+		_execute_formula()
 
 func _on_operation_button_pressed(button: OperationButton) -> void:
 	if !receive_inputs:
 		return
 	
 	_enter_operation(button.operation)
-
-func _on_equals_button_pressed() -> void:
-	if !receive_inputs:
-		return
-		
-	_execute_formula()

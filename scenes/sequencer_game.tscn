@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b12jbebnrbrhj" path="res://assets/images/lifted_container.png" id="2_ta8qa"]
 [ext_resource type="Theme" uid="uid://bqcj6e2j66757" path="res://resources/sequencer_theme.tres" id="3_3y3ug"]
 [ext_resource type="Theme" uid="uid://h6lby2jgldsl" path="res://resources/icon_label_theme.tres" id="3_u7vva"]
+[ext_resource type="PackedScene" uid="uid://blva8gaxl06t1" path="res://scenes/animated_button.tscn" id="4_aacdk"]
 [ext_resource type="Texture2D" uid="uid://dnhq6ctd110pj" path="res://assets/images/left_click_icon.png" id="4_u7vva"]
 [ext_resource type="Texture2D" uid="uid://cdnbgk3w6jxr1" path="res://assets/images/right_click_icon.png" id="5_s65pp"]
 
@@ -108,6 +109,9 @@ custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
+
+[node name="S11Button" parent="Sequencer/MarginContainer/Buttons" unique_id=2129710645 instance=ExtResource("4_aacdk")]
+layout_mode = 2
 
 [node name="Instructions" type="VBoxContainer" parent="." unique_id=1639154275]
 layout_mode = 2

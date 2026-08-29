@@ -1,4 +1,5 @@
-class_name OperationButton extends Button
+class_name OperationButton 
+extends AnimatedButton
 
 enum Operation {
 	ADD,
