@@ -15,6 +15,9 @@ func start() -> void:
 	_generate_sequence(0, 99)
 	_receive_inputs = true
 
+func get_one_position() -> Vector2:
+	return Vector2.ZERO
+
 func _generate_sequence(min_range: int, max_range: int) -> void:
 	_sequence_order.clear()
 	
@@ -39,14 +42,14 @@ func _generate_sequence(min_range: int, max_range: int) -> void:
 
 func _handle_left_click(button: Button) -> void:
 	if "1" in button.text:
-		fail(Vector2.ZERO)
+		fail(get_one_position_button(button))
 		return
 	
 	var target_number: int = _sequence_order.front()
 	print("Target: %d, Pressed: %d" %[target_number, int(button.text)])
 	
 	if int(button.text) != target_number:
-		fail(Vector2.ZERO)
+		fail(get_one_position_button(button))
 		return
 	
 	button.disabled = true
@@ -58,7 +61,7 @@ func _handle_left_click(button: Button) -> void:
 
 func _handle_right_click(button: Button) -> void:
 	if int(button.text) in _sequence_order:
-		fail(Vector2.ZERO)
+		fail(get_one_position_button(button))
 		return
 	
 	button.disabled = true

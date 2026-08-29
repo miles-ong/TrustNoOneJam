@@ -3,8 +3,8 @@ class_name Minigame extends Control
 signal completed
 signal failed
 
-const FAIL_FREEZE_TIME := 0.15
-const FAIL_FADE_TIME := 0.35
+const FAIL_FREEZE_TIME := 0.5
+const FAIL_FADE_TIME := 0.8
 const FAIL_HOLD_TIME := 0.5
 
 var _fail_overlay: ColorRect
@@ -21,21 +21,33 @@ func start() -> void:
 func complete() -> void:
 	completed.emit()
 
-func fail(fail_position: Vector2) -> void:
+func fail(one_position: Vector2) -> void:
 	if _failed:
 		return
 	
 	_failed = true
-	await _telegraph_fail(fail_position)
+	await _telegraph_fail(one_position)
 	failed.emit()
 
-func _telegraph_fail(fail_position: Vector2) -> void:
+func get_one_position() -> Vector2:
+	return Vector2.ZERO
+
+func get_one_position_label(_label: Label) -> Vector2:
+	var index := _label.text.find("1")
+	var character_rect := _label.get_character_bounds(index)
+	
+	return _label.global_position + character_rect.position
+
+func get_one_position_button(_button: Button) -> Vector2:
+	return Vector2.ZERO
+
+func _telegraph_fail(one_position: Vector2) -> void:
 	_fail_overlay.modulate.a = 0.0
 	
 	_fail_digit.text = "1"
 	_fail_digit.modulate.a = 0.0
 	_fail_digit.modulate.a = 0.0
-	_fail_digit.global_position = fail_position
+	_fail_digit.global_position = one_position
 	
 	await get_tree().create_timer(FAIL_FREEZE_TIME).timeout
 	var tween := create_tween()

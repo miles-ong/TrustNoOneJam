@@ -100,11 +100,7 @@ func _update_input_display(equals_result: int = -1) -> void:
 	current_input.text = updated_input
 	
 	if "1" in updated_input:
-		var index := current_input.text.find("1")
-		var character_rect := current_input.get_character_bounds(index)
-		var one_position := current_input.global_position + character_rect.position
-		fail(one_position)
-		return
+		fail(get_one_position_label(current_input))
 
 func _append_input(value: String) -> void:
 	if _check_length() == false:
