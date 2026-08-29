@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dx8ic1ga4j1ef" path="res://scripts/game_manager.gd" id="1_hwd4i"]
 [ext_resource type="PackedScene" uid="uid://bp3nnjmpstqmg" path="res://scenes/calculator_game.tscn" id="2_glms7"]
 [ext_resource type="PackedScene" uid="uid://ejm0cqn1s4e2" path="res://scenes/sequencer_game.tscn" id="3_udu3i"]
+[ext_resource type="Theme" uid="uid://o37o0rjfludh" path="res://resources/base_theme.tres" id="4_oo155"]
 
 [node name="GameManager" type="Node" unique_id=153823859]
 script = ExtResource("1_hwd4i")
@@ -17,5 +18,29 @@ offset_bottom = 180.0
 
 [node name="Timer" type="Timer" parent="." unique_id=1952350920]
 one_shot = true
+
+[node name="FailOverlay" type="ColorRect" parent="." unique_id=1077283422]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 0)
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+
+[node name="FailDigit" type="Label" parent="." unique_id=1847149120]
+unique_name_in_owner = true
+modulate = Color(1, 0, 0, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_oo155")
+text = "1"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

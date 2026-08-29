@@ -88,7 +88,7 @@ func start() -> void:
 func _update_input_display(equals_result: int = -1) -> void:
 	target.text = "MAKE=%d" % _target_output
 	
-	var updated_input = left_value + OPERATION_SYMBOLS[current_operation] + right_value
+	var updated_input: String = left_value + OPERATION_SYMBOLS[current_operation] + right_value
 	
 	if updated_input == "":
 		updated_input = "0"
@@ -98,6 +98,13 @@ func _update_input_display(equals_result: int = -1) -> void:
 		updated_input = str(equals_result)
 	
 	current_input.text = updated_input
+	
+	if "1" in updated_input:
+		var index := current_input.text.find("1")
+		var character_rect := current_input.get_character_bounds(index)
+		var one_position := current_input.global_position + character_rect.position
+		fail(one_position)
+		return
 
 func _append_input(value: String) -> void:
 	if _check_length() == false:
@@ -110,9 +117,6 @@ func _append_input(value: String) -> void:
 		left_value += value
 	else:
 		right_value += value
-	
-	if value == "1":
-		fail()
 	
 	_update_input_display()
 

@@ -43,6 +43,7 @@ theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
 [node name="Buttons" type="GridContainer" parent="Sequencer/MarginContainer" unique_id=1980357875]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 1
 theme_override_constants/v_separation = 1
@@ -54,55 +55,55 @@ custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
 
-[node name="S1Button2" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=121531964]
+[node name="S2Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=121531964]
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
 
-[node name="S1Button3" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1015259585]
+[node name="S3Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1015259585]
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
 
-[node name="S1Button4" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1736077005]
+[node name="S4Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1736077005]
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
 
-[node name="S1Button5" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=2074765093]
+[node name="S5Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=2074765093]
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
 
-[node name="S1Button6" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1508103799]
+[node name="S6Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1508103799]
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
 
-[node name="S1Button7" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=630991460]
+[node name="S7Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=630991460]
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
 
-[node name="S1Button8" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1039861650]
+[node name="S8Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1039861650]
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
 
-[node name="S1Button9" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=252763183]
+[node name="S9Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=252763183]
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
 
-[node name="S1Button10" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1920762361]
+[node name="S10Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1920762361]
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2

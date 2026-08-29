@@ -6,13 +6,15 @@ const TIME_DECREASE := 1.0
 
 @export var minigames: Array[PackedScene]
 
-@onready var minigame_container: Control = %MinigameContainer
-@onready var timer: Timer = $Timer
-
 var active_minigames: Array[PackedScene]
 var current_minigame: Minigame
 var score := 0
 var time_limit := STARTING_TIME
+
+@onready var minigame_container: Control = %MinigameContainer
+@onready var timer: Timer = $Timer
+@onready var fail_overlay: ColorRect = %FailOverlay
+@onready var fail_digit: Label = %FailDigit
 
 func _ready() -> void:
 	start_run()
@@ -44,7 +46,7 @@ func _start_next_minigame() -> void:
 	minigame_container.add_child(minigame)
 	
 	timer.start(time_limit)
-	
+	minigame.setup(fail_overlay, fail_digit)
 	minigame.start()
 
 func _refresh_active_minigames() -> void:
@@ -69,4 +71,4 @@ func _on_minigame_failed() -> void:
 
 func _on_timer_timeout() -> void:
 	if current_minigame != null:
-		current_minigame.fail()
+		current_minigame.fail(Vector2.ZERO)
