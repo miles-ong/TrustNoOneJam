@@ -1,20 +1,37 @@
 class_name AnimationController
 extends Node
 
-var _target: Node
-var _tween: Tween
+var _target_node: Node
+var _target_shader_material: ShaderMaterial
+var _scale_tween: Tween
 
 func _ready() -> void:
-	_target = get_parent() as Node
+	_target_node = get_parent() as Node
+	
+	if _target_node is Control:
+		if _target_node.material is ShaderMaterial:
+			_target_shader_material = _target_node.material
 
-func scale_to(target_scale: Vector2, duration: float, _trans := Tween.TRANS_QUAD, _ease := Tween.EASE_OUT) -> void:
-	if _tween:
-		_tween.kill()
+func scale_to(target_scale: Vector2, duration: float, trans_: Tween.TransitionType, ease_: Tween.EaseType) -> void:
+	if _scale_tween:
+		_scale_tween.kill()
 	
-	_tween = create_tween()
-	_tween.set_trans(_trans)
-	_tween.set_ease(_ease)
+	_scale_tween = create_tween()
+	_scale_tween.set_trans(trans_).set_ease(ease_)
 	
-	_tween.tween_property(_target, "offset_transform_scale", target_scale, duration)
+	_scale_tween.tween_property(_target_node, "offset_transform_scale", target_scale, duration)
 	
-	await _tween.finished
+	await _scale_tween.finished
+
+func tween_shader_param(
+	param: String,
+	target: Variant,
+	duration: float,
+	trans_: Tween.TransitionType,
+	ease_: Tween.EaseType) -> Tween:
+		var tween := create_tween()
+		tween.set_trans(trans_).set_ease(ease_)
+		
+		tween.tween_property(_target_shader_material, "shader_parameter/" + param, target, duration)
+		
+		return tween

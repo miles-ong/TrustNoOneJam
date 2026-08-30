@@ -32,8 +32,12 @@ var _disabled_numbers: Array[int] = []
 @onready var last_execution: Label = %LastExecution
 @onready var current_input: Label = %CurrentInput
 @onready var calculator_buttons: GridContainer = %CalculatorButtons
-@onready var delete_button: AnimatedButton = %DeleteButton
-@onready var equals_button: AnimatedButton = %EqualsButton
+@onready var add_button: OperationButton = %AddButton
+@onready var subtract_button: OperationButton = %SubtractButton
+@onready var multiply_button: OperationButton = %MultiplyButton
+@onready var divide_button: OperationButton = %DivideButton
+@onready var delete_button: InteractiveButton = %DeleteButton
+@onready var equals_button: InteractiveButton = %EqualsButton
 
 func _ready() -> void:
 	for button in calculator_buttons.get_children():
@@ -47,23 +51,35 @@ func _unhandled_input(event: InputEvent) -> void:
 	if !receive_inputs:
 		return
 	
+	var button: InteractiveButton
+	
 	if event.is_action_pressed("calc_add"):
+		add_button.telegraph_press()
 		_enter_operation(OperationButton.Operation.ADD)
 	elif event.is_action_pressed("calc_subtract"):
+		subtract_button.telegraph_press()
 		_enter_operation(OperationButton.Operation.SUBTRACT)
 	elif event.is_action_pressed("calc_multiply"):
+		multiply_button.telegraph_press()
 		_enter_operation(OperationButton.Operation.MULTIPLY)
 	elif event.is_action_pressed("calc_divide"):
+		divide_button.telegraph_press()
 		_enter_operation(OperationButton.Operation.DIVIDE)
 	elif event.is_action_pressed("calc_equals"):
+		button = equals_button
 		_execute_formula()
 	elif event.is_action_pressed("calc_delete"):
+		button = delete_button
 		_remove_input()
 	else:
 		for i in range(10):
 			if event.is_action_pressed("calc_%d" %i):
+				button = calculator_buttons.get_node("%dButton" %i)
 				_append_input(str(i))
-				return
+				break
+	
+	if button != null:
+		button.telegraph_press()
 
 func start() -> void:
 	_target_output = _generate_safe_number(0, 99)

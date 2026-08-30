@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bj3s74paj6e8f"]
 
-[ext_resource type="Script" uid="uid://dxtsqf4ohk3e" path="res://scripts/animation_controller.gd" id="1_2vpra"]
-[ext_resource type="Script" uid="uid://bak4wl25sfnh" path="res://scripts/animated_label.gd" id="1_qxuwc"]
+[ext_resource type="Script" uid="uid://bak4wl25sfnh" path="res://scripts/interactive_label.gd" id="1_q2u2s"]
+[ext_resource type="Script" uid="uid://dxtsqf4ohk3e" path="res://scripts/animation_controller.gd" id="2_w4ev5"]
 
 [node name="AnimatedLabel" type="Label" unique_id=1085539197]
 offset_right = 40.0
 offset_bottom = 23.0
-script = ExtResource("1_qxuwc")
+script = ExtResource("1_q2u2s")
 
 [node name="AnimationController" type="Node" parent="." unique_id=1685322739]
 unique_name_in_owner = true
-script = ExtResource("1_2vpra")
+script = ExtResource("2_w4ev5")
 metadata/_custom_type_script = "uid://dxtsqf4ohk3e"

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://3kiqiuykwje5"]
+
+[ext_resource type="Script" uid="uid://ch2uvxre7mvbk" path="res://scripts/background_shape.gd" id="1_8aiu5"]
+[ext_resource type="Shader" uid="uid://cf6fr3itmeiw3" path="res://resources/shape_shader.gdshader" id="1_pm7ei"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8aiu5"]
+shader = ExtResource("1_pm7ei")
+shader_parameter/shape_type = 0
+shader_parameter/shape_color = Color(1, 1, 1, 0.5)
+shader_parameter/size = 0.5
+shader_parameter/smoothness = 0.005
+
+[node name="BackgroundShape" type="ColorRect" unique_id=1386415586]
+material = SubResource("ShaderMaterial_8aiu5")
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_8aiu5")

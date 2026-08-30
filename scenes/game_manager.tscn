@@ -4,11 +4,38 @@
 [ext_resource type="PackedScene" uid="uid://bp3nnjmpstqmg" path="res://scenes/calculator_game.tscn" id="2_glms7"]
 [ext_resource type="PackedScene" uid="uid://ejm0cqn1s4e2" path="res://scenes/sequencer_game.tscn" id="3_udu3i"]
 [ext_resource type="Theme" uid="uid://o37o0rjfludh" path="res://resources/base_theme.tres" id="4_oo155"]
+[ext_resource type="Shader" uid="uid://b2itcapflqm86" path="res://resources/background_wave.gdshader" id="4_ternb"]
 [ext_resource type="Script" uid="uid://tgkv510borbe" path="res://scripts/screen_transition.gd" id="5_eaq8r"]
+[ext_resource type="Script" uid="uid://bwasggvrklcsh" path="res://scripts/wave_background.gd" id="5_q8mjp"]
+[ext_resource type="Script" uid="uid://dxtsqf4ohk3e" path="res://scripts/animation_controller.gd" id="6_jdad8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q8mjp"]
+shader = ExtResource("4_ternb")
+shader_parameter/top_color = Color(0.3, 0.6, 1, 1)
+shader_parameter/darken_amount = 0.4
+shader_parameter/wave_level = 0.5
+shader_parameter/wave_height = 0.05
+shader_parameter/wave_frequency = 6.0
+shader_parameter/wave_speed = 1.0
 
 [node name="GameManager" type="Node" unique_id=153823859]
 script = ExtResource("1_hwd4i")
 minigames = Array[PackedScene]([ExtResource("2_glms7"), ExtResource("3_udu3i")])
+
+[node name="WaveBackground" type="ColorRect" parent="." unique_id=1069067176]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_q8mjp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_q8mjp")
+
+[node name="AnimationController" type="Node" parent="WaveBackground" unique_id=1492179972]
+unique_name_in_owner = true
+script = ExtResource("6_jdad8")
+metadata/_custom_type_script = "uid://dxtsqf4ohk3e"
 
 [node name="MinigameContainer" type="Control" parent="." unique_id=1423713871]
 unique_name_in_owner = true

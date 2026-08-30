@@ -11,6 +11,7 @@ var current_minigame: Minigame
 var score := 0
 var time_limit := STARTING_TIME
 
+@onready var wave_background: WaveBackground = %WaveBackground
 @onready var minigame_container: Control = %MinigameContainer
 @onready var timer: Timer = $Timer
 @onready var fail_overlay: ColorRect = %FailOverlay
@@ -49,7 +50,7 @@ func _start_next_minigame() -> void:
 	minigame_container.add_child(minigame)
 	
 	timer.start(time_limit)
-	minigame.setup(fail_overlay, fail_digit)
+	minigame.setup(wave_background, fail_overlay, fail_digit)
 	minigame.start()
 	
 	await screen_transition.wipe_out()

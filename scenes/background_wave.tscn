@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://iuqeyxkvaw1f"]
+
+[ext_resource type="Shader" uid="uid://b2itcapflqm86" path="res://resources/background_wave.gdshader" id="1_b0jto"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4qip3"]
+shader = ExtResource("1_b0jto")
+shader_parameter/top_color = Color(0.3, 0.6, 1, 1)
+shader_parameter/bottom_color = Color(0.1, 0.2, 0.4, 1)
+shader_parameter/wave_height = 0.05
+shader_parameter/wave_frequency = 8.0
+shader_parameter/wave_speed = 1.0
+shader_parameter/line_center = 0.5
+
+[node name="BackgroundWave" type="ColorRect" unique_id=1161432615]
+material = SubResource("ShaderMaterial_4qip3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

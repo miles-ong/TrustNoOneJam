@@ -3,17 +3,20 @@ class_name Minigame extends Control
 signal completed
 signal failed
 
-const FAIL_FREEZE_TIME := 0.5
 const FAIL_FADE_TIME := 0.8
 const FAIL_HOLD_TIME := 0.5
 
 var receive_inputs := false
+var _background: WaveBackground
 var _fail_overlay: ColorRect
 var _fail_digit: Label
 
-func setup(fail_overlay: ColorRect, fail_digit: Label) -> void:
+func setup(background: WaveBackground, fail_overlay: ColorRect, fail_digit: Label) -> void:
+	_background = background
 	_fail_overlay = fail_overlay
 	_fail_digit = fail_digit
+	_background.wave_color = Color(randf(), randf(), randf())
+	_background.wave_level = 0.5
 
 func start() -> void:
 	pass
@@ -53,14 +56,15 @@ func telegraph_complete() -> void:
 	pass
 
 func _telegraph_fail(one_position: Vector2) -> void:
-	_fail_overlay.modulate.a = 0.0
+	_background.transition_color(Color.BLACK)
+	await _background.transition_wave_level(1.2).finished
 	
+	_fail_overlay.modulate.a = 0.0
 	_fail_digit.text = "1"
 	_fail_digit.modulate.a = 0.0
 	_fail_digit.modulate.a = 0.0
 	_fail_digit.global_position = one_position
 	
-	await get_tree().create_timer(FAIL_FREEZE_TIME).timeout
 	var tween := create_tween()
 	tween.set_parallel(true)
 	tween.tween_property(_fail_overlay, "modulate:a", 1.0, FAIL_FADE_TIME)
