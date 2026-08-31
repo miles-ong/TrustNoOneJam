@@ -7,11 +7,12 @@ var _sequence_order: Array[int] = []
 
 func _ready() -> void:
 	for button in buttons.get_children():
-		if button is Button:
-			button.gui_input.connect(_on_button_pressed.bind(button))
+		if button is InteractiveButton:
+			button.left_clicked.connect(_on_left_click.bind(button))
+			button.right_clicked.connect(_on_right_click.bind(button))
 
 func start() -> void:
-	_generate_sequence(0, 99)
+	_generate_sequence(1, 99)
 	receive_inputs = true
 
 func _generate_sequence(min_range: int, max_range: int) -> void:
@@ -28,51 +29,48 @@ func _generate_sequence(min_range: int, max_range: int) -> void:
 		
 		var current_button: Button = buttons.get_node("S%dButton" %current_button_index)
 		current_button.text = str(number)
-		
-		if not "1" in str(number):
-			_sequence_order.append(number)
-		
+		_sequence_order.append(number)
 		current_button_index += 1
 	
 	_sequence_order.sort()
 
-func _handle_left_click(button: Button) -> void:
-	if "1" in button.text:
-		fail(get_one_position_button(button))
-		return
-	
-	var target_number: int = _sequence_order.front()
-	print("Target: %d, Pressed: %d" %[target_number, int(button.text)])
-	
-	if int(button.text) != target_number:
-		fail(get_one_position_button(button))
-		return
-	
-	button.disabled = true
-	button.add_theme_color_override("font_disabled_color", Color.GREEN)
-	_sequence_order.remove_at(0)
-	
-	if _sequence_order.size() == 0:
-		complete()
-
-func _handle_right_click(button: Button) -> void:
-	if int(button.text) in _sequence_order:
-		fail(get_one_position_button(button))
-		return
-	
-	button.disabled = true
-	button.add_theme_color_override("font_disabled_color", Color.ORANGE)
-
-func _on_button_pressed(event: InputEvent, button: Button) -> void:
+func _on_left_click(button: InteractiveButton) -> void:
 	if !receive_inputs:
 		return
 	
-	if event is InputEventMouseButton:
-		if not event.pressed:
-			return
+	_validate_sequence(button, false)
+
+func _on_right_click(button: InteractiveButton) -> void:
+	if !receive_inputs:
+		return
+	
+	_validate_sequence(button, true)
+
+func _validate_sequence(button: InteractiveButton, skip: bool) -> void:
+	var target_number: int = _sequence_order.front()
+	var font_color := button.get_theme_color("font_disabled_color")
+	var valid := false
+	
+	if int(button.text) != target_number:
+		font_color = Color.RED
+		fail_message("Follow the sequence...") # fail on seq mismatch
+	elif "1" in button.text and !skip:
+		fail_one(get_one_position_button(button)) # fail on clicking wrong
+	elif "1" not in button.text and skip:
+		font_color = Color.RED
+		fail_message("Should've clicked that one...") # fail on skipping wrong
+	elif skip:
+		font_color = Color.ORANGE
+		valid = true
+	else:
+		font_color = Color.GREEN
+		valid = true
+	
+	button.disable()
+	button.add_theme_color_override("font_disabled_color", font_color)
+	
+	if valid:
+		_sequence_order.remove_at(0)
 		
-		match event.button_index:
-			MOUSE_BUTTON_LEFT:
-				_handle_left_click(button)
-			MOUSE_BUTTON_RIGHT:
-				_handle_right_click(button)
+		if _sequence_order.size() == 0:
+			complete()

@@ -16,15 +16,18 @@ var wave_level: float:
 		_set_shader_parameter("wave_level", value)
 		_wave_level = value
 var _shader_material: ShaderMaterial
-var _wave_color := Color.WHITE
-var _wave_level := 1.2
+var _wave_color: Color
+var _wave_level: float
 
 @onready var animation_controller: AnimationController = %AnimationController
 
 func _ready() -> void:
 	_shader_material = material as ShaderMaterial
-	wave_color = _wave_color
-	wave_level = _wave_level
+	refresh()
+
+func refresh() -> void:
+	wave_color = Color(randf(), randf(), randf())
+	wave_level = 0.5
 
 func transition_color(color_: Color) -> Tween:
 	_wave_color = color_

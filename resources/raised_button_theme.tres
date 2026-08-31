@@ -85,9 +85,9 @@ texture_margin_bottom = 3.0
 
 [resource]
 default_font = ExtResource("2_e5ty3")
-Button/colors/font_color = Color(0.26657507, 0.26657525, 0.26657513, 1)
-Button/colors/font_disabled_color = Color(0.23031491, 0.23031494, 0.23031494, 0.78431374)
-Button/colors/font_hover_color = Color(0.14044744, 0.14044747, 0.14044738, 1)
+Button/colors/font_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
+Button/colors/font_disabled_color = Color(0.23137255, 0.23137255, 0.23137255, 0.78431374)
+Button/colors/font_hover_color = Color(0.14117648, 0.14117648, 0.14117648, 1)
 Button/styles/disabled = SubResource("StyleBoxTexture_ag4b7")
 Button/styles/disabled_mirrored = SubResource("StyleBoxTexture_bcn74")
 Button/styles/focus = SubResource("StyleBoxTexture_se76q")

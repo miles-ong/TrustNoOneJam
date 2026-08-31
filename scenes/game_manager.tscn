@@ -3,11 +3,21 @@
 [ext_resource type="Script" uid="uid://dx8ic1ga4j1ef" path="res://scripts/game_manager.gd" id="1_hwd4i"]
 [ext_resource type="PackedScene" uid="uid://bp3nnjmpstqmg" path="res://scenes/calculator_game.tscn" id="2_glms7"]
 [ext_resource type="PackedScene" uid="uid://ejm0cqn1s4e2" path="res://scenes/sequencer_game.tscn" id="3_udu3i"]
-[ext_resource type="Theme" uid="uid://o37o0rjfludh" path="res://resources/base_theme.tres" id="4_oo155"]
+[ext_resource type="PackedScene" uid="uid://d0omqu4unqaco" path="res://scenes/sorting_game.tscn" id="4_aonbx"]
 [ext_resource type="Shader" uid="uid://b2itcapflqm86" path="res://resources/background_wave.gdshader" id="4_ternb"]
+[ext_resource type="AudioStream" uid="uid://ctbauotfju0dm" path="res://assets/sounds/win.mp3" id="5_cjvif"]
 [ext_resource type="Script" uid="uid://tgkv510borbe" path="res://scripts/screen_transition.gd" id="5_eaq8r"]
 [ext_resource type="Script" uid="uid://bwasggvrklcsh" path="res://scripts/wave_background.gd" id="5_q8mjp"]
 [ext_resource type="Script" uid="uid://dxtsqf4ohk3e" path="res://scripts/animation_controller.gd" id="6_jdad8"]
+[ext_resource type="AudioStream" uid="uid://bnqn4d2wm6wi6" path="res://assets/sounds/lose.mp3" id="6_ry0e6"]
+[ext_resource type="AudioStream" uid="uid://d36c0rd66imbf" path="res://assets/sounds/fail_on_input.mp3" id="7_pc0jn"]
+[ext_resource type="PackedScene" uid="uid://blva8gaxl06t1" path="res://scenes/interactive_button.tscn" id="8_0rse5"]
+[ext_resource type="PackedScene" uid="uid://d3tnjd8tw4cdf" path="res://scenes/title.tscn" id="9_0rse5"]
+[ext_resource type="Theme" uid="uid://f3cilhtnb5xe" path="res://resources/raised_button_theme.tres" id="10_0rse5"]
+[ext_resource type="AudioStream" uid="uid://bl8qyulkprsfx" path="res://assets/sounds/start_button.mp3" id="11_30v7y"]
+[ext_resource type="PackedScene" uid="uid://bj3s74paj6e8f" path="res://scenes/interactive_label.tscn" id="11_aonbx"]
+[ext_resource type="Theme" uid="uid://o37o0rjfludh" path="res://resources/base_theme.tres" id="11_lcbjr"]
+[ext_resource type="Script" uid="uid://dw280sf7jpicp" path="res://scripts/sound_controller.gd" id="15_5xtl8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q8mjp"]
 shader = ExtResource("4_ternb")
@@ -20,7 +30,10 @@ shader_parameter/wave_speed = 1.0
 
 [node name="GameManager" type="Node" unique_id=153823859]
 script = ExtResource("1_hwd4i")
-minigames = Array[PackedScene]([ExtResource("2_glms7"), ExtResource("3_udu3i")])
+minigames = Array[PackedScene]([ExtResource("4_aonbx"), ExtResource("3_udu3i"), ExtResource("2_glms7")])
+win_sound = ExtResource("5_cjvif")
+lose_sound = ExtResource("6_ry0e6")
+fail_on_input_sound = ExtResource("7_pc0jn")
 
 [node name="WaveBackground" type="ColorRect" parent="." unique_id=1069067176]
 unique_name_in_owner = true
@@ -30,6 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("5_q8mjp")
 
 [node name="AnimationController" type="Node" parent="WaveBackground" unique_id=1492179972]
@@ -44,6 +58,59 @@ anchors_preset = 0
 offset_right = 320.0
 offset_bottom = 180.0
 
+[node name="MainMenu" type="Control" parent="." unique_id=862212173]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Title" parent="MainMenu" unique_id=1023722678 instance=ExtResource("9_0rse5")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 100.0
+offset_top = 18.0
+offset_right = 183.0
+offset_bottom = 18.0
+grow_horizontal = 1
+grow_vertical = 1
+mouse_filter = 2
+
+[node name="MenuButtons" type="VBoxContainer" parent="MainMenu" unique_id=1667714756]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 87.5
+offset_top = 50.0
+offset_right = 192.5
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="HighscoreDisplay" parent="MainMenu/MenuButtons" unique_id=1085539197 instance=ExtResource("11_aonbx")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 3
+text = "Highscore : 0"
+
+[node name="PlayButton" parent="MainMenu/MenuButtons" unique_id=2129710645 instance=ExtResource("8_0rse5")]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("10_0rse5")
+text = "Play"
+click_sound = ExtResource("11_30v7y")
+
 [node name="Timer" type="Timer" parent="." unique_id=1952350920]
 one_shot = true
 
@@ -54,7 +121,35 @@ offset_right = 320.0
 offset_bottom = 180.0
 mouse_filter = 2
 
-[node name="FailDigit" type="Label" parent="." unique_id=1847149120]
+[node name="Stats" type="VBoxContainer" parent="." unique_id=1388335236]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 55.0
+grow_horizontal = 0
+theme_override_constants/separation = -4
+
+[node name="TimeDisplay" parent="Stats" unique_id=1381457770 instance=ExtResource("11_aonbx")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 3
+text = "0 : 00"
+horizontal_alignment = 2
+
+[node name="ScoreDisplay" type="Label" parent="Stats" unique_id=1166959685]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("11_lcbjr")
+theme_override_constants/outline_size = 3
+text = "Score: 0"
+horizontal_alignment = 2
+
+[node name="FailOne" parent="." unique_id=1860701409 instance=ExtResource("11_aonbx")]
 unique_name_in_owner = true
 modulate = Color(1, 0, 0, 0)
 anchors_preset = 8
@@ -68,8 +163,24 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("4_oo155")
 text = "1"
+horizontal_alignment = 0
+
+[node name="FailMessage" parent="." unique_id=437587282 instance=ExtResource("11_aonbx")]
+unique_name_in_owner = true
+modulate = Color(1, 0, 0, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -11.5
+offset_right = 96.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fail Message"
 
 [node name="ScreenTransition" type="ColorRect" parent="." unique_id=141668899]
 unique_name_in_owner = true
@@ -79,12 +190,17 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -480.0
-offset_top = -90.0
+offset_top = -165.0
 offset_right = -160.0
-offset_bottom = 90.0
+offset_bottom = 165.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("5_eaq8r")
 
+[node name="SoundController" type="Node" parent="." unique_id=497887960]
+unique_name_in_owner = true
+script = ExtResource("15_5xtl8")
+
+[connection signal="pressed" from="MainMenu/MenuButtons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

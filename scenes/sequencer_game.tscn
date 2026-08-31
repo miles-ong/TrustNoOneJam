@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://iy8edr20ej60" path="res://scripts/sequencer_game.gd" id="1_cenky"]
 [ext_resource type="Texture2D" uid="uid://b12jbebnrbrhj" path="res://assets/images/lifted_container.png" id="2_ta8qa"]
-[ext_resource type="Theme" uid="uid://bqcj6e2j66757" path="res://resources/sequencer_theme.tres" id="3_3y3ug"]
+[ext_resource type="Theme" uid="uid://bqcj6e2j66757" path="res://resources/flat_button_theme.tres" id="3_3y3ug"]
+[ext_resource type="PackedScene" uid="uid://blva8gaxl06t1" path="res://scenes/interactive_button.tscn" id="3_aacdk"]
 [ext_resource type="Theme" uid="uid://h6lby2jgldsl" path="res://resources/icon_label_theme.tres" id="3_u7vva"]
 [ext_resource type="Texture2D" uid="uid://dnhq6ctd110pj" path="res://assets/images/left_click_icon.png" id="4_u7vva"]
+[ext_resource type="AudioStream" uid="uid://dtq2pogr0lfqn" path="res://assets/sounds/click2.mp3" id="5_rj3td"]
 [ext_resource type="Texture2D" uid="uid://cdnbgk3w6jxr1" path="res://assets/images/right_click_icon.png" id="5_s65pp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ta8qa"]
@@ -49,65 +51,85 @@ theme_override_constants/h_separation = 1
 theme_override_constants/v_separation = 1
 columns = 5
 
-[node name="S1Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=456182479]
+[node name="S1Button" parent="Sequencer/MarginContainer/Buttons" unique_id=2129710645 instance=ExtResource("3_aacdk")]
+modulate = Color(0.5422399, 0.49514484, 0.82472897, 1)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
+click_sound = ExtResource("5_rj3td")
 
-[node name="S2Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=121531964]
+[node name="S2Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1530513300 instance=ExtResource("3_aacdk")]
+modulate = Color(0.5422399, 0.49514484, 0.82472897, 1)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
+click_sound = ExtResource("5_rj3td")
 
-[node name="S3Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1015259585]
+[node name="S3Button" parent="Sequencer/MarginContainer/Buttons" unique_id=2129948285 instance=ExtResource("3_aacdk")]
+modulate = Color(0.5422399, 0.49514484, 0.82472897, 1)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
+click_sound = ExtResource("5_rj3td")
 
-[node name="S4Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1736077005]
+[node name="S4Button" parent="Sequencer/MarginContainer/Buttons" unique_id=308407419 instance=ExtResource("3_aacdk")]
+modulate = Color(0.5422399, 0.49514484, 0.82472897, 1)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
+click_sound = ExtResource("5_rj3td")
 
-[node name="S5Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=2074765093]
+[node name="S5Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1197990953 instance=ExtResource("3_aacdk")]
+modulate = Color(0.5422399, 0.49514484, 0.82472897, 1)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
+click_sound = ExtResource("5_rj3td")
 
-[node name="S6Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1508103799]
+[node name="S6Button" parent="Sequencer/MarginContainer/Buttons" unique_id=227261341 instance=ExtResource("3_aacdk")]
+modulate = Color(0.5422399, 0.49514484, 0.82472897, 1)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
+click_sound = ExtResource("5_rj3td")
 
-[node name="S7Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=630991460]
+[node name="S7Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1129502 instance=ExtResource("3_aacdk")]
+modulate = Color(0.5422399, 0.49514484, 0.82472897, 1)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
+click_sound = ExtResource("5_rj3td")
 
-[node name="S8Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1039861650]
+[node name="S8Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1339877410 instance=ExtResource("3_aacdk")]
+modulate = Color(0.5422399, 0.49514484, 0.82472897, 1)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
+click_sound = ExtResource("5_rj3td")
 
-[node name="S9Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=252763183]
+[node name="S9Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1148392642 instance=ExtResource("3_aacdk")]
+modulate = Color(0.5422399, 0.49514484, 0.82472897, 1)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
+click_sound = ExtResource("5_rj3td")
 
-[node name="S10Button" type="Button" parent="Sequencer/MarginContainer/Buttons" unique_id=1920762361]
+[node name="S10Button" parent="Sequencer/MarginContainer/Buttons" unique_id=2146290132 instance=ExtResource("3_aacdk")]
+modulate = Color(0.5422399, 0.49514484, 0.82472897, 1)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 theme = ExtResource("3_3y3ug")
+click_sound = ExtResource("5_rj3td")
 
 [node name="Instructions" type="VBoxContainer" parent="." unique_id=1639154275]
 layout_mode = 2

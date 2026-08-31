@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://d0omqu4unqaco"]
+
+[ext_resource type="PackedScene" uid="uid://blva8gaxl06t1" path="res://scenes/interactive_button.tscn" id="1_lv67f"]
+[ext_resource type="Script" uid="uid://dggga0gtqbdpy" path="res://scripts/sorting_game.gd" id="1_m4bsx"]
+[ext_resource type="AudioStream" uid="uid://cqbeav5vdspmq" path="res://assets/sounds/pick_up.mp3" id="2_5jbvq"]
+[ext_resource type="Script" uid="uid://cg7nkts1bi02a" path="res://scripts/sort_button.gd" id="2_a8bwk"]
+[ext_resource type="Theme" uid="uid://bqcj6e2j66757" path="res://resources/flat_button_theme.tres" id="2_m4bsx"]
+[ext_resource type="Theme" uid="uid://f3cilhtnb5xe" path="res://resources/raised_button_theme.tres" id="2_orgad"]
+[ext_resource type="AudioStream" uid="uid://dlihvh83404ao" path="res://assets/sounds/put_down.mp3" id="3_3tpaw"]
+[ext_resource type="Script" uid="uid://dw280sf7jpicp" path="res://scripts/sound_controller.gd" id="6_2oej7"]
+[ext_resource type="AudioStream" uid="uid://b0gcog5tm467" path="res://assets/sounds/click.mp3" id="8_3tpaw"]
+
+[node name="SortingGame" type="VBoxContainer" unique_id=255641030]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -60.0
+offset_right = 120.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_m4bsx")
+start_dragging_sound = ExtResource("2_5jbvq")
+end_dragging_sound = ExtResource("3_3tpaw")
+
+[node name="Buttons" type="HBoxContainer" parent="." unique_id=209073271]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="S1Button" parent="Buttons" unique_id=2129710645 instance=ExtResource("1_lv67f")]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("2_m4bsx")
+script = ExtResource("2_a8bwk")
+drag_scale = 1.05
+drag_animation_time = 0.1
+drag_z_index = 100
+
+[node name="S1Button2" parent="Buttons" unique_id=1673795236 instance=ExtResource("1_lv67f")]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("2_m4bsx")
+script = ExtResource("2_a8bwk")
+drag_scale = 1.05
+drag_animation_time = 0.1
+drag_z_index = 100
+
+[node name="S1Button3" parent="Buttons" unique_id=139853209 instance=ExtResource("1_lv67f")]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("2_m4bsx")
+script = ExtResource("2_a8bwk")
+drag_scale = 1.05
+drag_animation_time = 0.1
+drag_z_index = 100
+
+[node name="S1Button4" parent="Buttons" unique_id=712143221 instance=ExtResource("1_lv67f")]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("2_m4bsx")
+script = ExtResource("2_a8bwk")
+drag_scale = 1.05
+drag_animation_time = 0.1
+drag_z_index = 100
+
+[node name="S1Button5" parent="Buttons" unique_id=2053118831 instance=ExtResource("1_lv67f")]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("2_m4bsx")
+script = ExtResource("2_a8bwk")
+drag_scale = 1.05
+drag_animation_time = 0.1
+drag_z_index = 100
+
+[node name="S1Button6" parent="Buttons" unique_id=105706554 instance=ExtResource("1_lv67f")]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("2_m4bsx")
+script = ExtResource("2_a8bwk")
+drag_scale = 1.05
+drag_animation_time = 0.1
+drag_z_index = 100
+
+[node name="S1Button7" parent="Buttons" unique_id=786551280 instance=ExtResource("1_lv67f")]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("2_m4bsx")
+script = ExtResource("2_a8bwk")
+drag_scale = 1.05
+drag_animation_time = 0.1
+drag_z_index = 100
+
+[node name="ConfirmButton" parent="." unique_id=1683520317 instance=ExtResource("1_lv67f")]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_orgad")
+text = "Confirm Order"
+click_sound = ExtResource("8_3tpaw")
+
+[node name="SoundController" type="Node" parent="." unique_id=152212606]
+unique_name_in_owner = true
+script = ExtResource("6_2oej7")

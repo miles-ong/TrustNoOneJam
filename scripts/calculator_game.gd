@@ -20,7 +20,10 @@ var current_operation: OperationButton.Operation = OperationButton.Operation.NON
 		return _current_operation
 	set(value):
 		for button in operation_buttons:
-			button.disabled = value != OperationButton.Operation.NONE
+			if value == OperationButton.Operation.NONE:
+				button.enable()
+			else:
+				button.disable()
 		
 		_current_operation = value
 var _current_operation: OperationButton.Operation = OperationButton.Operation.NONE
@@ -44,7 +47,7 @@ func _ready() -> void:
 		if button is OperationButton:
 			operation_buttons.append(button)
 			button.pressed.connect(_on_operation_button_pressed.bind(button))
-		elif button is Button:
+		elif button is InteractiveButton:
 			button.pressed.connect(_on_button_pressed.bind(button))
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -83,12 +86,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func start() -> void:
 	_target_output = _generate_safe_number(0, 99)
-	var initial_input := _generate_safe_number(0, 99)
-	
-	while initial_input == _target_output:
-		initial_input = _generate_safe_number(0, 99)
-	
-	left_value = str(initial_input)
 	_update_input_display()
 	
 	while _disabled_numbers.size() < _disabled_number_count:
@@ -98,8 +95,13 @@ func start() -> void:
 			continue
 		
 		_disabled_numbers.append(number)
-		var button: Button = calculator_buttons.get_node("%dButton" %number)
-		button.disabled = true
+		var button: InteractiveButton = calculator_buttons.get_node("%dButton" %number)
+		button.disable()
+	
+	for number in str(_target_output):
+		_disabled_numbers.append(int(number))
+		var button: InteractiveButton = calculator_buttons.get_node("%sButton" %number)
+		button.disable()
 	
 	receive_inputs = true
 
@@ -131,7 +133,7 @@ func _update_input_display(equals_result: int = -1) -> void:
 	current_input.text = updated_input
 	
 	if "1" in updated_input:
-		fail(get_one_position_label(current_input))
+		fail_one(get_one_position_label(current_input))
 
 func _append_input(value: String) -> void:
 	if _check_length() == false:
@@ -204,7 +206,7 @@ func _generate_safe_number(min_range: int, max_range: int) -> int:
 	
 	return number
 
-func _on_button_pressed(button: Button) -> void:
+func _on_button_pressed(button: InteractiveButton) -> void:
 	if !receive_inputs:
 		return
 	
